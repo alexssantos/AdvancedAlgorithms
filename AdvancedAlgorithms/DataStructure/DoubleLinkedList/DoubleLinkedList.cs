@@ -16,15 +16,15 @@ namespace AdvancedAlgorithms.DataStructure.DoubleLinkedList
         {
             this.Head = head;
             this.Tail = tail;
-            head.next = tail;
-            tail.previous = head;
+            head.Next = tail;
+            tail.Previous = head;
             Size = 2;
         }
 
         private void SetFirstItem(Node<V> node)
         {
-            node.previous = null;
-            node.next = null;
+            node.Previous = null;
+            node.Next = null;
             Head = node;
             Tail = node;
             Size = 1;
@@ -38,19 +38,19 @@ namespace AdvancedAlgorithms.DataStructure.DoubleLinkedList
             else
             {
                 //configura como primeiro nó
-                first.previous = null;
+                first.Previous = null;
 
                 //transferindo ponteiro do nó
-                first.next = Head;
+                first.Next = Head;
                 if (Head != null)
-                    Head.previous = first;
+                    Head.Previous = first;
 
                 //atualiza o apontando para o primeiro.
                 Head = first;
 
                 if (Size == 1)
                 {
-                    Tail = first.next;
+                    Tail = first.Next;
                 }
                 Size += 1;
             }
@@ -64,18 +64,18 @@ namespace AdvancedAlgorithms.DataStructure.DoubleLinkedList
             else
             {
                 //configura como ultimo.
-                last.next = null;
+                last.Next = null;
 
                 //transferindo ponteiro
-                last.previous = Tail;
+                last.Previous = Tail;
                 if (Tail != null)
-                    Tail.next = last;
+                    Tail.Next = last;
 
                 //atualiza ponteiro para o correto.
                 Tail = last;
                 if (Size == 1)
                 {
-                    Head = last.previous;
+                    Head = last.Previous;
                 }
                 Size += 1;
             }
@@ -99,8 +99,8 @@ namespace AdvancedAlgorithms.DataStructure.DoubleLinkedList
         public Node<V> SearchFirstOne(V value)
         {
             var pointer = Head;
-            while (!pointer.value.Equals(value))
-                pointer = pointer.next;
+            while (!pointer.Value.Equals(value))
+                pointer = pointer.Next;
 
             return pointer;
         }
@@ -111,9 +111,9 @@ namespace AdvancedAlgorithms.DataStructure.DoubleLinkedList
                 throw new ArgumentException("A lista já esta vazia.");
 
             //aponta pro proximo
-            Head = Head.next;
+            Head = Head.Next;
             //configura o atual head como primeiro.
-            Head.previous = null;
+            Head.Previous = null;
             Size -= 1;
         }
 
@@ -123,9 +123,9 @@ namespace AdvancedAlgorithms.DataStructure.DoubleLinkedList
                 throw new ArgumentException("A lista já esta vazia.");
 
             //aponta pro anterior
-            Tail = Tail.previous;
+            Tail = Tail.Previous;
             //configura como ultimo.
-            Tail.next = null;
+            Tail.Next = null;
             Size -= 1;
         }
 
@@ -147,14 +147,14 @@ namespace AdvancedAlgorithms.DataStructure.DoubleLinkedList
             }
             else
             {
-                var founded = SearchFirstOne(target.value);
-                var prev = founded.previous;
+                var founded = SearchFirstOne(target.Value);
+                var prev = founded.Previous;
 
-                prev.next = newNode;
-                newNode.previous = prev;
+                prev.Next = newNode;
+                newNode.Previous = prev;
 
-                founded.previous = newNode;
-                newNode.next = founded;
+                founded.Previous = newNode;
+                newNode.Next = founded;
             }
         }
 
@@ -166,14 +166,14 @@ namespace AdvancedAlgorithms.DataStructure.DoubleLinkedList
             }
             else
             {
-                var founded = SearchFirstOne(target.value);
-                var next = founded.next;
+                var founded = SearchFirstOne(target.Value);
+                var next = founded.Next;
 
-                newNode.next = next;
-                next.previous = newNode;
+                newNode.Next = next;
+                next.Previous = newNode;
 
-                newNode.previous = founded;
-                founded.next = newNode;
+                newNode.Previous = founded;
+                founded.Next = newNode;
             }
         }
 
@@ -189,7 +189,7 @@ namespace AdvancedAlgorithms.DataStructure.DoubleLinkedList
             while (current != null)
             {
                 Console.WriteLine(current.ToString());
-                current = current.next;
+                current = current.Next;
             }
             Console.ReadKey();
         }
@@ -203,13 +203,13 @@ namespace AdvancedAlgorithms.DataStructure.DoubleLinkedList
             while (current != null)
             {
                 Console.WriteLine(current.ToString());
-                current = current.previous;
+                current = current.Previous;
             }
             Console.ReadKey();
         }
 
         public override string ToString()
-           => $"valor: {Head.value}";
+           => $"valor: {Head.Value}";
 
     }
 }

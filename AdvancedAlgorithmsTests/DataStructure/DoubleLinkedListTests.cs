@@ -20,7 +20,7 @@ namespace AdvancedAlgorithmsTests.DataStructure
             list.SetHead(2);
             list.SetHead(1);
 
-            Assert.True(list.GetFirst().value == 1);
+            Assert.True(list.GetFirst().Value == 1);
         }
 
         [Fact]
@@ -33,7 +33,7 @@ namespace AdvancedAlgorithmsTests.DataStructure
             list.SetTail(2);
             list.SetTail(1);
 
-            Assert.True(list.GetLast().value == 1);
+            Assert.True(list.GetLast().Value == 1);
         }
     }
 }

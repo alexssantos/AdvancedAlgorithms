@@ -41,7 +41,7 @@ namespace AdvancedAlgorithmsTests.Exercises
             list.SetTail(4);
             list.SetTail(5);
 
-            Assert.Equal(5, list.SearchFirstOne(5).value);
+            Assert.Equal(5, list.SearchFirstOne(5).Value);
         }
 
         //Inserir um valor (Append) após um nó
@@ -58,7 +58,7 @@ namespace AdvancedAlgorithmsTests.Exercises
             list.AddAfterValue(4, 10);
             var nodeValue4 = list.SearchFirstOne(4);
 
-            Assert.Equal(10, nodeValue4.next.value);
+            Assert.Equal(10, nodeValue4.Next.Value);
         }
 
         //Remover um nó pelo valor
