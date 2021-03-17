@@ -7,14 +7,14 @@ namespace AdvancedAlgorithms.Searching
 
     public static class BinarySearch
     {
-        /**
+        /** OPÇÃO 1
         * Busca recursivamente o item dentro do vetor vector. A cada iteração
         * reduz o espaço de busca pela metade. Quando encontra o item retorna
         * o índice onde ele foi encontrado. Caso contrário retorna -1
         */
         public static int Execute<T>(T[] vetor, int indiceInicio, int indiceFim, T valor) where T : IComparable
         {
-            /* Índice representando o meio do sub-vetor begin->end */
+            /* Índice representando o meio do sub-vetor */
             int posicaoPivo = (indiceInicio + indiceFim) / 2;
 
             /* Ponto de parada. Item não está no vetor */
@@ -36,5 +36,16 @@ namespace AdvancedAlgorithms.Searching
                 return Execute(vetor, posicaoPivo + 1, indiceFim, valor);
             }
         }
+
+        //Pode ser implementado usando while ao inves de recursao.
     }
 }
+
+
+/*
+ REFERENCIAS: 
+
+ https://blog.pantuza.com/artigos/busca-binaria
+ 
+ 
+ */
